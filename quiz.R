@@ -1,5 +1,3 @@
-names(echo)[names(echo)%in%paste0("Q", 13:20)]<-c(paste0("QUIZ.text.nh",1:4),paste0("QUIZ.text.sb",1:4))
-
 quizgrader<-function(answers, guesses, lower=T){
   correct<-rep(F, length(guesses))
   if (lower==T) guesses<-tolower(guesses)

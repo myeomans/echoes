@@ -1,6 +1,6 @@
 # average confidence
 mean(c(echo$avg_favorite1,echo$avg_favorite2)) 
-# correct answers are 
+
 
 # Decent balance for each question!
 table(echo$NH_cx_name, useNA="ifany")
