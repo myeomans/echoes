@@ -1,7 +1,3 @@
-echo<-read.csv("echoes1.csv", stringsAsFactors=F)
-names(echo)[1:10]<-echo[1,1:10]
-# extra title row
-echo<-echo[2:nrow(echo),]
 ################################
 # attention checks
 ################################
@@ -18,5 +14,8 @@ echo<-echo[!(echo$word.test<25),]
 # 8 duplicated IPaddresses in the data
 echo<-echo[!duplicated(echo$IPAddress),]
 
-# N = 469 
+# 1 participant with incomplete data
+echo<-(echo[!((echo$SB_den1=="")&(echo$SB_car1=="")),])
+
+# N = 468
 dim(echo)

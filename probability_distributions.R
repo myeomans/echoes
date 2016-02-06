@@ -1,4 +1,4 @@
-png("Figure_1.png", width=750, height=500)
+#png("Figure_1.png", width=750, height=500)
 par(mfrow=c(2,2), mar=c(5,5,2,2))
 judgments<-list(nh1=echo$NH_favorite1,
                 nh2=echo$NH_favorite2,
@@ -18,5 +18,5 @@ for (J in 1:length(judgments)){
   abline(v=50, col="red", lty=3, lwd=3)
 
 }
-dev.off()
+#dev.off()
 rm(judgments, judgment.names,J)

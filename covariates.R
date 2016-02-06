@@ -1,3 +1,5 @@
+# Lots of work to do here
+
 # 1 to 7 - "strong denver preference" to "strong carolina preference"
 # 1 to 7 - "strong preference for trump loss" to "strong preference for trump win"
 names(echo)[names(echo)%in%c("Q23_1","Q35_1")]<-paste0("preference.",c("nh","sb"))
