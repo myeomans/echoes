@@ -10,7 +10,6 @@ install_github("myeomans/yeomansroot@yeomansroot")
 library(yeomansroot) # just for SEM & error.bar in plots
 require(qdap) # word counting
 
-
 # Loading the Qualtrics data
 #echo<-read.csv("echoes1.csv", stringsAsFactors=F)
 load("echo.RData")
