@@ -6,7 +6,8 @@ quizgrader<-function(answers, guesses, lower=T){
   for(A in 1:length(answers)){
     correct<-correct|grepl(answers[A], guesses, fixed=T)
   }
-  print(table(guesses[!correct]))
+  print(cbind(as.numeric(table(guesses[!correct])),
+              names(table(guesses[!correct]))))
   return(correct)
 }
 echo$NHquiz1<-quizgrader(c("biden","joe","bidon"),echo$QUIZ.text.nh1) 

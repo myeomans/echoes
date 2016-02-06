@@ -1,5 +1,4 @@
 #echo<-read.csv("echoes1.csv", stringsAsFactors=F)
-
 load("echo.RData")
 
 library(qdap)
