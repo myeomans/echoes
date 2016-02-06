@@ -30,5 +30,6 @@ source("treatment_effects.R") # test of predicted main effects
 source("bar_plot.R")          # plot of main effects, simple differences (Figure 2)
 source("change_plot.R")       # plot of main effects over time (Figure 3)
 source("weight_guess.R")      # plot of effects on weight guesses (Figure 4)
+source("essays.R")
 #source(".R")
 #source(".R")
