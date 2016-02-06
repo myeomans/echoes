@@ -1,5 +1,4 @@
 echo<-read.csv("echoes1.csv", stringsAsFactors=F)
-names(echo)
 names(echo)[1:10]<-echo[1,1:10]
 # extra title row
 echo<-echo[2:nrow(echo),]
