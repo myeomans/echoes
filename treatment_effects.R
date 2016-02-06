@@ -1,19 +1,26 @@
-# Decent balance for each question!
-table(echo$NH_cx_name, useNA="ifany")
-table(echo$SB_cx_name, useNA="ifany")
+####################################################
+# TESTING THE SLOPE OF CHANGE 
+####################################################
 
-echo$NH_favorite_change<-echo$NH_favorite2-echo$NH_favorite1
-echo$SB_favorite_change<-echo$SB_favorite2-echo$SB_favorite1
+# No secular trend... always good to check
+t.test(echo[echo$treatment=="nostance","avg_favorite_change"], mu=0)
 
-echo$target_favorite_change<-echo$other_favorite_change<-NA
-echo[echo$topic=="NH",]$target_favorite_change<-echo[echo$topic=="NH",]$NH_favorite_change
-echo[echo$topic=="NH",]$other_favorite_change <-echo[echo$topic=="NH",]$SB_favorite_change
-echo[echo$topic=="SB",]$target_favorite_change<-echo[echo$topic=="SB",]$SB_favorite_change
-echo[echo$topic=="SB",]$other_favorite_change <-echo[echo$topic=="SB",]$NH_favorite_change
+# No surprise here
+t.test(echo[echo$treatment=="advocate","target_favorite_change"], mu=0)
+# Replicating Minson et al.
+t.test(echo[echo$treatment=="advocate","other_favorite_change"], mu=0)
+# No change at all! Interesting
+t.test(echo[echo$treatment=="opposite","target_favorite_change"], mu=0)
+# Here's where things get weird
+t.test(echo[echo$treatment=="opposite","other_favorite_change"], mu=0)
 
-summary(aov(target_favorite_change~treatment, data=echo))
-summary(aov(other_favorite_change~treatment, data=echo))
 
-table(echo$topic)
-table(echo$treatment)
+# TT<-"nostance"
+# t.test(echo[echo$treatment==TT,]$NH_favorite2, 
+#        echo[echo$treatment==TT,]$NH_favorite1,
+#        paired=T)
 
+# summary(aov(target_favorite_change~treatment, data=echo))
+# summary(aov(other_favorite_change~treatment, data=echo))
+# 
+# summary(lm(target_favorite_change~treatment, data=echo))
