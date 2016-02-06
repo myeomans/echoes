@@ -7,26 +7,21 @@
 # Dependencies
 library(devtools)
 install_github("myeomans/yeomansroot@yeomansroot")
-<<<<<<< HEAD
 library(yeomansroot) # just for SEM & error.bar in plots
 require(qdap) # word counting
-=======
-library(yeomansroot) # just for error bars
-require(qdap) # word counting
-require(lme4)
->>>>>>> 36e01640f9fa40d2688c05b6516c189d7c746716
 
 # Loading the Qualtrics data
 #echo<-read.csv("echoes1.csv", stringsAsFactors=F)
 load("echo.RData")
 
 # Data Cleaning
-source("cleaning.R")    # renaming variables
-source("exclusions.R")  # attention checks, IP check, incompletes
-source("treatments.R")  # random assignment and essay text
-source("estimates.R")   # probability estimates
-source("quiz.R")        # scoring the knowledge quiz
-source("covariates.R")  # other non-focal measures
+source("cleaning.R")     # renaming variables
+source("exclusions.R")   # attention checks, IP check, incompletes
+source("treatments.R")   # random assignment and essay text
+source("estimates.R")    # probability estimates
+source("quiz.R")         # scoring the knowledge quiz
+source("covariates.R")   # other non-focal measures
+source("ordereffects.R") # presentation order effects
 
 # Results
 source("descriptives.R")      # average confidence, condition sizes

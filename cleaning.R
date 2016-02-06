@@ -15,3 +15,8 @@ names(echo)[names(echo)%in%c("Q56_1")]<-"NH_lose2"
 
 # Sensible quiz names
 names(echo)[names(echo)%in%paste0("Q", 13:20)]<-c(paste0("QUIZ.text.nh",1:4),paste0("QUIZ.text.sb",1:4))
+
+# Sensible covariate names
+names(echo)[names(echo)%in%c("Q23_1","Q35_1")]<-paste0("preference.",c("nh","sb"))
+names(echo)[names(echo)%in%c("Q27_1","Q45_1")]<-paste0("importance.",c("nh","sb"))
+names(echo)[names(echo)%in%c("Q26_1")]<-"party.affiliation"
