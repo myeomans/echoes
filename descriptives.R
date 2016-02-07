@@ -11,5 +11,3 @@ table(echo[,c("advocate","opposite","nostance")])
 
 table(echo$topic)
 table(echo[,c("topic_SB","topic_NH","nostance")])
-
-
