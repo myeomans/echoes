@@ -22,3 +22,6 @@ echo$SBquiz4<-quizgrader(c("cardinals","arizona"),echo$QUIZ.text.sb4)
 
 echo$NHquiz<-rowSums(echo[,paste0("NHquiz",1:4)])
 echo$SBquiz<-rowSums(echo[,paste0("SBquiz",1:4)])
+
+# Better at politics than sports (mainly the VP question)
+table(echo$NHquiz, echo$SBquiz)

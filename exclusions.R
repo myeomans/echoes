@@ -11,7 +11,7 @@ plot(table(echo$word.test), xlim=c(0,100))
 abline(v=24.5, lwd=2,col="red")
 echo<-echo[!(echo$word.test<25),]
 
-# 8 duplicated IPaddresses in the data
+# 8 duplicated IPaddresses
 echo<-echo[!duplicated(echo$IPAddress),]
 
 # 1 participant with incomplete data

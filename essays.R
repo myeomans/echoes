@@ -1,5 +1,5 @@
-echo$essay_wc<-word_count(echo$essay)
 
+echo$essay_wc<-word_count(echo$essay)
 
 
 mean(echo[echo$treatment=="advocate",]$essay_wc)

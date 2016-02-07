@@ -14,6 +14,14 @@ t.test(echo[echo$treatment=="opposite","target_favorite_change"], mu=0)
 # Here's where things get weird
 t.test(echo[echo$treatment=="opposite","other_favorite_change"], mu=0)
 
+summary(lm(target_favorite_change~treatment, data=echo))
+
+
+FILTER<-(echo$treatment=="opposite")&(echo$lapse.est==0)
+t.test(echo[FILTER,]$target_favorite_change,
+       echo[FILTER,]$other_favorite_change,
+       paired=T)
+
 
 # TT<-"nostance"
 # t.test(echo[echo$treatment==TT,]$NH_favorite2, 
