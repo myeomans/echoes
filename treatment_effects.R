@@ -1,23 +1,24 @@
 ####################################################
 # TESTING THE SLOPE OF CHANGE 
 ####################################################
+FF<-T
 
 # No secular trend... always good to check
-t.test(echo[echo$treatment=="nostance","avg_favorite_change"], mu=0)
+t.test(echo[FF&(echo$treatment=="nostance"),"avg_favorite_change"], mu=0)
 
 # No surprise here
-t.test(echo[echo$treatment=="advocate","target_favorite_change"], mu=0)
+t.test(echo[FF&(echo$treatment=="advocate"),"target_favorite_change"], mu=0)
 # Replicating Minson et al.
-t.test(echo[echo$treatment=="advocate","other_favorite_change"], mu=0)
+t.test(echo[FF&(echo$treatment=="advocate"),"other_favorite_change"], mu=0)
 # No change at all! Interesting
-t.test(echo[echo$treatment=="opposite","target_favorite_change"], mu=0)
+t.test(echo[FF&(echo$treatment=="opposite"),"target_favorite_change"], mu=0)
 # Here's where things get weird
-t.test(echo[echo$treatment=="opposite","other_favorite_change"], mu=0)
+t.test(echo[FF&(echo$treatment=="opposite"),"other_favorite_change"], mu=0)
 
 summary(lm(target_favorite_change~treatment, data=echo))
 
 
-FILTER<-(echo$treatment=="opposite")&(echo$lapse.est==0)
+FILTER<-(echo$treatment=="advocate")
 t.test(echo[FILTER,]$target_favorite_change,
        echo[FILTER,]$other_favorite_change,
        paired=T)

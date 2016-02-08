@@ -20,6 +20,9 @@ echo[flip.LOSE,"NH_favorite2"]<-as.numeric(echo[flip.LOSE,"NH_lose2"])
 echo[flip.LOSE,"WINvLOSE1"]<-100-as.numeric(echo[flip.LOSE,"NH_lose1"])
 echo[flip.LOSE,"WINvLOSE2"]<-100-as.numeric(echo[flip.LOSE,"NH_lose2"])
 
+# A fix for inconsistent probability estimates... SPECULATIVE
+source("missfix.R")
+
 echo$SB_favorite_change<-echo$SB_favorite2-echo$SB_favorite1
 echo$NH_favorite_change<-echo$NH_favorite2-echo$NH_favorite1
 

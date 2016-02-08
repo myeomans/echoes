@@ -17,7 +17,6 @@ for (J in 1:length(judgments)){
        main=judgment.names[[J]], xaxt="n")
   axis(side=1, at=seq(0,100,10), label=seq(0,100,10))
   abline(v=50, col="red", lty=3, lwd=3)
-  
 }
 #dev.off()
 rm(judgments, judgment.names,J)
@@ -27,6 +26,11 @@ rm(judgments, judgment.names,J)
 table((echo$NH_favorite1<50),(echo$NH_favorite2<50))
 table((echo$SB_favorite1<50),(echo$SB_favorite2<50))
 
-# This variable can exclude people
-echo$lapse.est<-((echo$NH_favorite1<50)+(echo$NH_favorite2<50)
+# Possibly for exclusions...
+echo$lapse.both<-((echo$NH_favorite1<50)+(echo$NH_favorite2<50)
                 +(echo$SB_favorite1<50)+(echo$SB_favorite2<50))
+
+echo$lapse.one<-((echo$NH_favorite1<50)+(echo$SB_favorite1<50))
+
+
+
