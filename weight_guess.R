@@ -3,6 +3,13 @@ names(echo)[names(echo)%in%c("Q37")]<-"weight.estimate"
 echo$weight.estimate<-as.numeric(echo$weight.estimate)
 echo$weight.confidence<-as.numeric(echo$weight.confidence)
 
+# Predicted Hit Rate
+mean(echo$weight.confidence)
+# Hit rate (+/- 5 pounds of the truth)
+mean(abs(echo$weight.estimate-190.6)<=5)
+# Correlation between confidence and Mean Absolute Error
+cor.test(abs(echo$weight.estimate-190.6), echo$weight.confidence)
+
 summary(aov(weight.confidence~treatment, data=echo))
 summary(lm(weight.confidence~nostance, data=echo))
 
